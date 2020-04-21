@@ -118,6 +118,7 @@ namespace Microwave.Test.Unit
             ManualResetEvent pause = new ManualResetEvent(false);
             int notifications = 0;
 
+
             uut.Expired += (sender, args) => pause.Set();
             uut.TimerTick += (sender, args) => uut.Stop();
 
