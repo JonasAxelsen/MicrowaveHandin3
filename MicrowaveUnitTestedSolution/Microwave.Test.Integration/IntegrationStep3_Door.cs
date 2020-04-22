@@ -8,6 +8,7 @@ using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
+using NSubstitute.ReceivedExtensions;
 
 //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
 //| Step # | Door | UserInterface | Light | PowerButton | TimeButton | Start-CancelButton | Display | CookController | PowerTube | Timer | Output |
@@ -53,5 +54,31 @@ namespace Microwave.Test.Integration
             _door.Open();
             Assert.That(() => _door.Open(), Throws.Nothing);
         }
+
+        [Test]
+        public void Door_Open_OutputRecievesCorrektString()
+        {
+            _door.Open();
+
+            _output.Received(1).OutputLine(Arg.Is<string>(str=>str.Contains("Light is turned on")));
+        }        
+        
+        [Test]
+        public void Door_Close_OutputRecievesNoCall()
+        {
+            _door.Close();
+
+            _output.DidNotReceive().OutputLine(Arg.Any<string>());
+        }        
+        
+        [Test]
+        public void Door_OpenClose_OutputRecievesNoCall()
+        {
+            _door.Open();
+            _door.Close();
+
+            _output.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("Light is turned off")));
+        }
+        
     }
 }
