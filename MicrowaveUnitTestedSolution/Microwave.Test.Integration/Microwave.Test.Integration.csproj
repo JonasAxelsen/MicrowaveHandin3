@@ -61,7 +61,7 @@
     <Compile Include="IntegrationStep9.cs" />
     <Compile Include="IntegrationStep8.cs" />
     <Compile Include="IntegrationStep7.cs" />
-    <Compile Include="IntegrationStep3.cs" />
+    <Compile Include="IntegrationStep3_Door.cs" />
     <Compile Include="IntegrationStep2.cs" />
     <Compile Include="IntegrationStep4.cs" />
     <Compile Include="IntegrationStep5.cs" />
