@@ -53,6 +53,12 @@ namespace Microwave.Test.Integration
         {
             _door.Open();
             Assert.That(() => _door.Open(), Throws.Nothing);
+        }        
+        
+        [Test]
+        public void Door_Close_NoThrow()
+        {
+            Assert.That(() => _door.Close(), Throws.Nothing);
         }
 
         [Test]
