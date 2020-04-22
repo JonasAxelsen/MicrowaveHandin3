@@ -70,7 +70,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagramBoundary.cd" />
+    <None Include="ClassDiagramControllers.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

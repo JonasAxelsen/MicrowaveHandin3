@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MicrowaveOvenClasses.Boundary.Button" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAEAAA=</HashCode>
+      <FileName>Boundary\Button.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MicrowaveOvenClasses.Boundary.Display">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEEAABAAAA=</HashCode>
+      <FileName>Boundary\Display.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="myOutput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MicrowaveOvenClasses.Boundary.Door" Collapsed="true">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAEAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Boundary\Door.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MicrowaveOvenClasses.Boundary.Light">
+    <Position X="1.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAARAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Boundary\Light.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="myOutput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MicrowaveOvenClasses.Boundary.PowerTube">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAQAAAAAQAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Boundary\PowerTube.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="myOutput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MicrowaveOvenClasses.Boundary.Timer" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAA0AAAAAAAAAAABIAAAQAAAAAA=</HashCode>
+      <FileName>Boundary\Timer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MicrowaveOvenClasses.Interfaces.IOutput" Collapsed="true">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IOutput.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
