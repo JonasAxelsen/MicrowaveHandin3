@@ -61,7 +61,7 @@
     <Compile Include="IntegrationStep9.cs" />
     <Compile Include="IntegrationStep8.cs" />
     <Compile Include="IntegrationStep7.cs" />
-    <Compile Include="IntegrationStep3.cs" />
+    <Compile Include="IntegrationStep3_Door.cs" />
     <Compile Include="IntegrationStep2.cs" />
     <Compile Include="IntegrationStep4.cs" />
     <Compile Include="IntegrationStep5.cs" />
@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MicrowaveOvenClasses\MicrowaveOvenClasses.csproj">
-      <Project>{2B04DA6B-AFE9-4548-AA05-84D806BA0FA4}</Project>
+      <Project>{2b04da6b-afe9-4548-aa05-84d806ba0fa4}</Project>
       <Name>MicrowaveOvenClasses</Name>
     </ProjectReference>
   </ItemGroup>
