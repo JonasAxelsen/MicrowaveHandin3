@@ -37,7 +37,7 @@ namespace Microwave.Test.Integration
         [TestCase(50)]
         public void CookController_StartCooking_ChargingStartedWithCorrectParam(int power)
         { 
-            _cookController.StartCooking(10, 10);
+            _cookController.StartCooking(power, 10);
             _fakeOutput.Received(1).OutputLine($"PowerTube works with {power}");
         }
 
