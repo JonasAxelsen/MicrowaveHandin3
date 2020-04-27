@@ -123,7 +123,7 @@ namespace MicrowaveOvenClasses.Controllers
                     myCooker.Stop();
                     powerLevel = 50;
                     time = 1;
-                    myDisplay.Clear(); //Tilføjet af Anders. fejl fundet i step3.
+                    myDisplay.Clear(); //Tilføjet af Anders. fejl fundet i step3. bug
                     myState = States.DOOROPEN;
                     break;
             }

@@ -174,7 +174,7 @@ namespace Microwave.Test.Integration
             _door.Open();
 
             _cookController.Received(1).Stop();
-            _output.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("Display cleared"))); //Lavede fejl i koden
+            _output.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("Display cleared"))); //Fandt fejl i koden
         }
 
         [Test]
