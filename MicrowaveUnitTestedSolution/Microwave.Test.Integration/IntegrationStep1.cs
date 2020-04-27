@@ -24,6 +24,12 @@ namespace Microwave.Test.Integration
         public IDoor _door;
 
         public UserInterface _UserInterface;
+            
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
+        //| Step # | Door | UserInterface | Light | PowerButton | TimeButton | Start-CancelButton | Display | CookController | PowerTube | Timer | Output |
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
+        //| 1      |  s   |      T        |   X   |      s      |     s      |         s          |    X    |       S        |           |       |   S    |
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
 
 
         [SetUp]
@@ -44,13 +50,37 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void sutmigaf()
+        public void CookingIsDoneClearsDisplay()
         {
-            //Act
-            _door.Opened += Raise.Event();
-            // assert lys tænd
+            // Arrange: Bring user interface to COOKING state
+            _powerButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            startCancelButton.Pressed += Raise.Event();
 
-            _output.Received(1).OutputLine("Light is turned on");
+            // Act
+            _UserInterface.CookingIsDone();
+
+            // Assert
+            _output.Received(1).OutputLine("Display cleared");
+        }
+
+        [Test]
+        public void CookingIsDoneTurnsOffLight()
+        {
+            // Arrange: Bring user interface to COOKING state
+            _powerButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            startCancelButton.Pressed += Raise.Event();
+
+            // Act
+            _UserInterface.CookingIsDone();
+
+            // Assert
+            _output.Received(1).OutputLine("Light is turned off");
         }
     }
 }
