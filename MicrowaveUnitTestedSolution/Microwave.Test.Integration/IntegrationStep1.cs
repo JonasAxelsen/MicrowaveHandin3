@@ -50,21 +50,34 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void DoorOpenTurnsLightOn()
+        public void CookingIsDoneClearsDisplay()
         {
+            // Arrange: Bring user interface to COOKING state
+            _powerButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            startCancelButton.Pressed += Raise.Event();
+
             // Act
-            _door.Opened += Raise.Event();
+            _UserInterface.CookingIsDone();
 
             // Assert
-            _output.Received(1).OutputLine("Light is turned on");
+            _output.Received(1).OutputLine("Display cleared");
         }
 
         [Test]
-        public void DoorCloseTurnsLightOff()
+        public void CookingIsDoneTurnsOffLight()
         {
+            // Arrange: Bring user interface to COOKING state
+            _powerButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            _timeButton.Pressed += Raise.Event();
+            startCancelButton.Pressed += Raise.Event();
+
             // Act
-            _door.Opened += Raise.Event();
-            _door.Closed += Raise.Event();
+            _UserInterface.CookingIsDone();
 
             // Assert
             _output.Received(1).OutputLine("Light is turned off");
