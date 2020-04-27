@@ -24,6 +24,12 @@ namespace Microwave.Test.Integration
         public IDoor _door;
 
         public UserInterface _UserInterface;
+            
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
+        //| Step # | Door | UserInterface | Light | PowerButton | TimeButton | Start-CancelButton | Display | CookController | PowerTube | Timer | Output |
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
+        //| 1      |  s   |      T        |   X   |      s      |     s      |         s          |    X    |       S        |           |       |   S    |
+        //+--------+------+---------------+-------+-------------+------------+--------------------+---------+----------------+-----------+-------+--------+
 
 
         [SetUp]
@@ -44,13 +50,24 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void sutmigaf()
+        public void DoorOpenTurnsLightOn()
         {
-            //Act
+            // Act
             _door.Opened += Raise.Event();
-            // assert lys tænd
 
+            // Assert
             _output.Received(1).OutputLine("Light is turned on");
+        }
+
+        [Test]
+        public void DoorCloseTurnsLightOff()
+        {
+            // Act
+            _door.Opened += Raise.Event();
+            _door.Closed += Raise.Event();
+
+            // Assert
+            _output.Received(1).OutputLine("Light is turned off");
         }
     }
 }
