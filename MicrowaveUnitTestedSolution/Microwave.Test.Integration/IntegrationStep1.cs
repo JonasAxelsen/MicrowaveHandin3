@@ -20,7 +20,7 @@ namespace Microwave.Test.Integration
         public IOutput _output;
         public IButton _powerButton;
         public IButton _timeButton;
-        public IButton startCancelButton;
+        public IButton _startCancelButton;
         public IDoor _door;
 
         public UserInterface _UserInterface;
@@ -42,11 +42,11 @@ namespace Microwave.Test.Integration
 
             _powerButton = Substitute.For<IButton>();
             _timeButton = Substitute.For<IButton>();
-            startCancelButton = Substitute.For<IButton>();
+            _startCancelButton = Substitute.For<IButton>();
 
             _door = Substitute.For<IDoor>();
 
-            _UserInterface = new UserInterface(_powerButton, _timeButton, startCancelButton, _door, _display, _light, _cookController);
+            _UserInterface = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light, _cookController);
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace Microwave.Test.Integration
             _timeButton.Pressed += Raise.Event();
             _timeButton.Pressed += Raise.Event();
             _timeButton.Pressed += Raise.Event();
-            startCancelButton.Pressed += Raise.Event();
+            _startCancelButton.Pressed += Raise.Event();
 
             // Act
             _UserInterface.CookingIsDone();
@@ -74,7 +74,7 @@ namespace Microwave.Test.Integration
             _timeButton.Pressed += Raise.Event();
             _timeButton.Pressed += Raise.Event();
             _timeButton.Pressed += Raise.Event();
-            startCancelButton.Pressed += Raise.Event();
+            _startCancelButton.Pressed += Raise.Event();
 
             // Act
             _UserInterface.CookingIsDone();
