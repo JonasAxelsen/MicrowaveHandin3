@@ -19,7 +19,7 @@ using NSubstitute.ReceivedExtensions;
 namespace Microwave.Test.Integration
 {
     [TestFixture]
-    public class IntegrationStep3_Door  
+    public class IntegrationStep3  
     {
         private Door _door;
         private UserInterface _userInterface;
