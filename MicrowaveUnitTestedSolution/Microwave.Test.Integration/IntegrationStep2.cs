@@ -76,15 +76,11 @@ namespace Microwave.Test.Integration
             _fakeOutput.Received(1).OutputLine($"PowerTube turned off");
         }
 
-        [TestCase(0)]
-        [TestCase(1000)]
-        [TestCase(2000)]
-        [TestCase(10000)]
         [TestCase(100000)]
-        public void CookCOntroler_OnTimerick_DlayRecievedCorrectParamsAtCookingStart(int time)
+        public void CookCOntroler_OnTimerick_DlayRecievedCorrectParamsAtCookingStart(int time) // ERROR DETECTED: time has to be formatted to secs before being used
         {
-            int mins = (time-1000) / 60; //Subtract 1000 to emulate timer-tick
-            int secs = (time-1000) % 60;
+            int mins = ((time-1000)/1000) / 60; //Subtract 1000 to emulate timer-tick
+            int secs = ((time-1000)/1000) % 60;
 
             _fakeTimer.TimeRemaining.Returns(time-1000); // Fake return value for private property
 
