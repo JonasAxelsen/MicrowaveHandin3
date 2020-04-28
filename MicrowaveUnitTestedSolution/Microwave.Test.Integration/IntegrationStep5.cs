@@ -21,16 +21,16 @@ namespace Microwave.Test.Integration
     [TestFixture]
     public class IntegrationStep5
     {
-        public Light _light;
-        public Display _display;
-        public ICookController _cookController;
-        public IOutput _output;
-        public IButton _powerButton;
-        public Button _timeButton;
-        public IButton _startCancelButton;
-        public IDoor _door;
+        private Light _light;
+        private Display _display;
+        private ICookController _cookController;
+        private IOutput _output;
+        private IButton _powerButton;
+        private Button _timeButton;
+        private IButton _startCancelButton;
+        private IDoor _door;
 
-        public UserInterface _UserInterface;
+        private UserInterface _UserInterface;
 
         [SetUp]
         public void Setup()
@@ -81,5 +81,5 @@ namespace Microwave.Test.Integration
             // Assert
             _output.Received(1).OutputLine($"Display shows: {min:D2}:{sec:D2}");
         }
-    }
+    }// make negative tests for other events
 }
