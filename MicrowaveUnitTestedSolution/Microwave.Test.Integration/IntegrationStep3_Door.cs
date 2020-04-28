@@ -145,6 +145,7 @@ namespace Microwave.Test.Integration
         public void UserInterfacePowerState_Open_OutputRecievesCorrektString()
         {
             _powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.ClearReceivedCalls();
 
             _door.Open();
 
@@ -157,6 +158,7 @@ namespace Microwave.Test.Integration
         {
             _powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.ClearReceivedCalls();
 
             _door.Open();
 
@@ -170,17 +172,31 @@ namespace Microwave.Test.Integration
             _powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.ClearReceivedCalls();
+
+            _door.Open();
+
+            _output.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("Display cleared"))); //Fandt fejl i koden
+        }
+
+        [Test]
+        public void UserInterfaceCookingState_Open_CookControllerReceivesCorrektCall()
+        {
+            _powerButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _timeButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _startCancelButton.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.ClearReceivedCalls();
 
             _door.Open();
 
             _cookController.Received(1).Stop();
-            _output.Received(1).OutputLine(Arg.Is<string>(str => str.Contains("Display cleared"))); //Fandt fejl i koden
         }
 
         [Test]
         public void UserInterfaceOpenState_Close_OutputRecievesCorrektString()
         {
             _door.Open();
+            _output.ClearReceivedCalls();
 
             _door.Close();
 
@@ -191,6 +207,7 @@ namespace Microwave.Test.Integration
         public void UserInterfaceReadyState_Close_OutputRecievesNoCall()
         {
             _door.Close();
+            _output.ClearReceivedCalls();
 
             _output.DidNotReceive().OutputLine(Arg.Any<string>());
         }

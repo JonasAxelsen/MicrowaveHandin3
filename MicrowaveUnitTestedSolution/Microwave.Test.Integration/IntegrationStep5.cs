@@ -21,16 +21,16 @@ namespace Microwave.Test.Integration
     [TestFixture]
     public class IntegrationStep5
     {
-        public Light _light;
-        public Display _display;
-        public ICookController _cookController;
-        public IOutput _output;
-        public IButton _powerButton;
-        public Button _timeButton;
-        public IButton _startCancelButton;
-        public IDoor _door;
+        private Light _light;
+        private Display _display;
+        private ICookController _cookController;
+        private IOutput _output;
+        private IButton _powerButton;
+        private Button _timeButton;
+        private IButton _startCancelButton;
+        private IDoor _door;
 
-        public UserInterface _UserInterface;
+        private UserInterface _UserInterface;
 
         [SetUp]
         public void Setup()
@@ -80,6 +80,49 @@ namespace Microwave.Test.Integration
 
             // Assert
             _output.Received(1).OutputLine($"Display shows: {min:D2}:{sec:D2}");
+        }
+
+        [Test]
+        public void TimeButtonPressed_InREADYState_OutputNotCalled()
+        {
+            // Arrange: Bring User Interface to READY State
+            
+
+            // Act
+            _timeButton.Press();
+
+            // Assert
+            _output.DidNotReceiveWithAnyArgs().OutputLine("");
+        }
+
+        [Test]
+        public void TimeButtonPressed_InDOOROPENState_OutputNotCalled()
+        {
+            // Arrange: Bring User Interface to DOOROPEN State
+            _door.Opened += Raise.Event();
+            _output.ClearReceivedCalls();
+
+            // Act
+            _timeButton.Press();
+
+            // Assert
+            _output.DidNotReceiveWithAnyArgs().OutputLine("");
+        }
+
+        [Test]
+        public void TimeButtonPressed_InCOOKINGState_OutputNotCalled()
+        {
+            // Arrange: Bring User Interface to COOKING State
+            _powerButton.Pressed += Raise.Event();
+            _timeButton.Press();
+            _startCancelButton.Pressed += Raise.Event();
+            _output.ClearReceivedCalls();
+
+            // Act
+            _timeButton.Press();
+
+            // Assert
+            _output.DidNotReceiveWithAnyArgs().OutputLine("");
         }
     }
 }
