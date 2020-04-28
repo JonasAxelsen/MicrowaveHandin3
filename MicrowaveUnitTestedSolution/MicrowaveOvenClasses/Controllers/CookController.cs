@@ -61,10 +61,10 @@ namespace MicrowaveOvenClasses.Controllers
             }
         }
 
-        public void OnTimerTick(object sender, EventArgs e)
+        public void OnTimerTick(object sender, EventArgs e) // FIXED FORMAT ERROR
         {
             int remaining = myTimer.TimeRemaining;
-            myDisplay.ShowTime(remaining/60, remaining % 60);
+            myDisplay.ShowTime((remaining/1000)/60, (remaining/1000) % 60);
         }
     }
 }
